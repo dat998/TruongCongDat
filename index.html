@@ -1,34 +1,575 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title> Chào mừng đến với trang web của tôi</title> 
-    </head>
-    <style>
-        p.left {
-           text-align: left;
-        }
-        p.right {
-           text-align: right;
-        }
-        p.center {
-           text-align: center;
-        }
-    </style>
-    <body>
-        <div class="navigation">
-            <ul class ="menu">
-                <li> <a href ="trangchu.html"  Đây là trang chủ trang web  ></a></li>
-                <li> <a href ="tailieu.html" <button> Đây là trang tài liệu trang web </button> > </a ></li>
-            </ul>
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Trương Công Đạt · Full-stack Developer</title>
+  <meta name="description" content="Trương Công Đạt – Full-stack Developer với hơn 3 năm kinh nghiệm PHP (Laravel, FuelPHP), Odoo (Python), NestJS và Next.js. Làm việc với khách hàng Nhật Bản.">
+  <meta property="og:title" content="Trương Công Đạt · Full-stack Developer">
+  <meta property="og:description" content="Hơn 3 năm kinh nghiệm PHP, Odoo, NestJS, Next.js. Làm việc với khách hàng Nhật Bản.">
+  <meta property="og:image" content="assets/avatar.png">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="assets/avatar.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script>
+    // Áp dụng theme sớm nhất có thể để tránh hiện tượng nhấp nháy màn hình (FOUC)
+    try {
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme) {
+        document.documentElement.dataset.theme = savedTheme;
+      }
+    } catch (e) {}
+  </script>
+</head>
+<body>
+  <!-- Scroll Progress Indicator -->
+  <div class="progress-bar-container" aria-hidden="true">
+    <div class="progress-bar" id="progressBar"></div>
+  </div>
+
+  <!-- Header Navigation -->
+  <header class="nav">
+    <div class="container nav-inner">
+      <a href="#top" class="logo" aria-label="Trang chủ Trương Công Đạt">
+        <span class="logo-tag mono">&lt;</span>
+        <span class="logo-text">Đạt</span>
+        <span class="logo-tag mono">/&gt;</span>
+      </a>
+
+      <nav class="nav-links" id="navLinks" aria-label="Điều hướng chính">
+        <a href="#about">Giới thiệu</a>
+        <a href="#skills">Kỹ năng</a>
+        <a href="#experience">Kinh nghiệm</a>
+        <a href="#projects">Dự án</a>
+        <a href="#contact">Liên hệ</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="icon-btn" id="themeToggle" aria-label="Chuyển đổi giao diện Sáng / Tối">
+          <svg class="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+          <svg class="i-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+
+        <button class="icon-btn menu-btn" id="menuToggle" aria-label="Mở bảng chọn">
+          <svg viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- HERO SECTION -->
+    <section class="hero container">
+      <div class="hero-text reveal">
+        <h1>
+          Xin chào, tôi là <br>
+          <span class="gradient-text">Trương Công Đạt</span>
+        </h1>
+
+        <div class="hero-role">
+          <span class="tag-role">Full-stack Developer</span>
+          <span class="muted">·</span>
+          <span>PHP (Laravel)</span>
+          <span class="muted">·</span>
+          <span>Python (Odoo)</span>
+          <span class="muted">·</span>
+          <span>TypeScript (NestJS / Next.js)</span>
         </div>
-       <h1> <marquee style= "font-size :50px; color:rgb(255, 94, 0);">Giới thiệu về tôi</marquee></h1>
-        <p class="center">
-        Tôi là sinh viên<br>
-        Họ và tên: Trương Công Đạt<br>
-        Lớp: k61THA <br>
-        MSV : 611283<br>
-            Tôi là sinh viên năm thứ tư của Học viện Nông Nghiệp Việt Nam<br>
-        <img src="images\dat.jpg" id="dat" width="304" height="342"></p>
-        <p>Đây là trang cá nhân của tôi : <a href="https://www.facebook.com/profile.php?id=100026254987202"><button>Trang facebook cá nhân</button></a></p>
-    </body>
+
+        <p class="lead">
+          Kỹ sư phần mềm với hơn 3 năm kinh nghiệm phát triển và vận hành hệ thống web cho <b>khách hàng Nhật Bản</b>. 
+          Có thể đảm nhận từ thiết kế cơ sở dữ liệu, API phía back-end đến giao diện người dùng và triển khai Docker, CI/CD.
+        </p>
+
+        <div class="hero-cta">
+          <a class="btn primary" href="#projects">
+            <span>Xem dự án thực tế</span>
+            <svg class="arrow-icon" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <a class="btn ghost" href="mailto:dattruong0108@gmail.com">
+            <svg viewBox="0 0 24 24"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            <span>Liên hệ hợp tác</span>
+          </a>
+          <a class="btn ghost icon-only" href="https://github.com/dat998" target="_blank" rel="noopener noreferrer" aria-label="Xem GitHub của Đạt" title="GitHub Profile">
+            <svg viewBox="0 0 24 24"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+          </a>
+        </div>
+
+        <div class="stats">
+          <div class="stat-item">
+            <strong>3+ Năm</strong>
+            <span>Kinh nghiệm PHP với khách hàng Nhật</span>
+          </div>
+          <div class="stat-item">
+            <strong>1+ Năm</strong>
+            <span>Kinh nghiệm Odoo / Python</span>
+          </div>
+          <div class="stat-item">
+            <strong>3</strong>
+            <span>Dự án freelance full-stack</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-visual reveal">
+        <div class="visual-glow" aria-hidden="true"></div>
+        
+        <div class="photo-wrapper">
+          <div class="floating-badge">
+            <svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+            <span>Next.js · NestJS · Docker</span>
+          </div>
+
+          <div class="photo-frame">
+            <img src="assets/avatar.png" alt="Ảnh chân dung Trương Công Đạt" width="480" height="480" loading="eager">
+          </div>
+
+          <!-- Code Snippet Card -->
+          <div class="code-card mono" aria-hidden="true">
+            <div class="code-header">
+              <div class="code-controls">
+                <span class="dot red"></span>
+                <span class="dot yellow"></span>
+                <span class="dot green"></span>
+              </div>
+              <span class="code-title">developer.ts</span>
+            </div>
+            <div class="code-body">
+              <span class="k">const</span> dat = {<br>
+              &nbsp;&nbsp;role: <span class="s">'Full-stack Dev'</span>,<br>
+              &nbsp;&nbsp;location: <span class="s">'Hà Nội, VN'</span>,<br>
+              &nbsp;&nbsp;focus: [<span class="s">'PHP'</span>, <span class="s">'Python'</span>, <span class="s">'TS'</span>]<br>
+              };
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section id="about" class="section container">
+      <div class="section-head reveal">
+        <span class="section-tag mono">01 // VỀ TÔI</span>
+        <h3>Hành trình phát triển &amp; Triết lý làm việc</h3>
+        <p class="section-desc">Kết hợp giữa kỹ năng lập trình vững chắc, tư duy hệ thống và văn hóa làm việc kỷ luật cao của thị trường Nhật Bản.</p>
+      </div>
+
+      <div class="about-grid">
+        <div class="about-text reveal">
+          <p>
+            Tôi là kỹ sư phần mềm tốt nghiệp chuyên ngành Tin học tại <b>Học viện Nông nghiệp Việt Nam</b> (Khóa luận tốt nghiệp đạt <b>8.8/10</b>).
+            Phần lớn thời gian làm việc của tôi gắn liền với các hệ thống lớn của khách hàng Nhật Bản — môi trường đòi hỏi sự tỉ mỉ, độ chính xác cao về nghiệp vụ, chuẩn mực clean code cũng như quy trình kiểm thử khắt khe.
+          </p>
+          <p>
+            Hiện tại, tôi là <b>PHP Developer tại THK Holdings Việt Nam</b>, chịu trách nhiệm phát triển và vận hành nền tảng tuyển dụng việc làm gồm nhiều website dùng chung hạ tầng. 
+            Song song đó, tôi tích cực nhận các dự án freelance với tư cách Full-stack Developer, trực tiếp làm chủ toàn bộ chu trình từ khảo sát yêu cầu, thiết kế kiến trúc DB, bảo mật API, xây dựng UI tương tác đến container hóa với Docker và thiết lập CI/CD.
+          </p>
+
+          <div class="value-props">
+            <div class="prop-card">
+              <div class="prop-icon">
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              </div>
+              <div class="prop-body">
+                <h5>Quy chuẩn chất lượng cao</h5>
+                <p>Tuân thủ chuẩn code PSR, phân tích tĩnh với PHPStan, kiểm thử UI tự động bằng Playwright và phòng chống lỗ hổng XSS.</p>
+              </div>
+            </div>
+
+            <div class="prop-card">
+              <div class="prop-icon">
+                <svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+              </div>
+              <div class="prop-body">
+                <h5>Kiến trúc linh hoạt &amp; Mở rộng</h5>
+                <p>Kinh nghiệm xây dựng kiến trúc đa người thuê (Multi-tenant SaaS), xử lý hàng đợi BullMQ/Redis và tích hợp lớp học trực tuyến realtime (LiveKit).</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="facts-card card reveal">
+          <h4>Thông tin nhanh</h4>
+          <ul class="facts-list">
+            <li>
+              <div class="fact-icon">
+                <svg viewBox="0 0 24 24"><rect width="20" height="14" x="2" y="7" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+              </div>
+              <div class="fact-content">
+                <span class="fact-label mono">Vị trí chuyên môn</span>
+                <span class="fact-value">Full-stack Developer (PHP / Python / TS)</span>
+              </div>
+            </li>
+            <li>
+              <div class="fact-icon">
+                <svg viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+              </div>
+              <div class="fact-content">
+                <span class="fact-label mono">Địa điểm làm việc</span>
+                <span class="fact-value">Hà Nội, Việt Nam</span>
+              </div>
+            </li>
+            <li>
+              <div class="fact-icon">
+                <svg viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+              </div>
+              <div class="fact-content">
+                <span class="fact-label mono">Học vấn</span>
+                <span class="fact-value">Cử nhân Tin học · HV Nông nghiệp VN</span>
+              </div>
+            </li>
+            <li>
+              <div class="fact-icon">
+                <svg viewBox="0 0 24 24"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+              </div>
+              <div class="fact-content">
+                <span class="fact-label mono">Email liên hệ</span>
+                <span class="fact-value"><a href="mailto:dattruong0108@gmail.com">dattruong0108@gmail.com</a></span>
+              </div>
+            </li>
+            <li>
+              <div class="fact-icon">
+                <svg viewBox="0 0 24 24"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+              </div>
+              <div class="fact-content">
+                <span class="fact-label mono">GitHub Profile</span>
+                <span class="fact-value"><a href="https://github.com/dat998" target="_blank" rel="noopener noreferrer">github.com/dat998</a></span>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS SECTION -->
+    <section id="skills" class="section container">
+      <div class="section-head reveal">
+        <span class="section-tag mono">02 // NĂNG LỰC CÔNG NGHỆ</span>
+        <h3>Kỹ năng &amp; Hệ sinh thái kỹ thuật</h3>
+        <p class="section-desc">Bộ công cụ công nghệ hiện đại được tôi sử dụng thường xuyên trong các dự án thực tế và production.</p>
+      </div>
+
+      <div class="skills-grid">
+        <div class="card skill-card reveal">
+          <div class="skill-card-header">
+            <div class="skill-icon">
+              <svg viewBox="0 0 24 24"><rect width="20" height="8" x="2" y="2" rx="2" ry="2"/><rect width="20" height="8" x="2" y="14" rx="2" ry="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
+            </div>
+            <h4>Back-end</h4>
+          </div>
+          <ul class="tags">
+            <li class="core">PHP 8</li>
+            <li class="core">Laravel</li>
+            <li>FuelPHP</li>
+            <li class="core">Python</li>
+            <li class="core">Odoo</li>
+            <li class="core">NestJS</li>
+            <li>TypeScript</li>
+            <li>RESTful API</li>
+          </ul>
+        </div>
+
+        <div class="card skill-card reveal">
+          <div class="skill-card-header">
+            <div class="skill-icon">
+              <svg viewBox="0 0 24 24"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
+            </div>
+            <h4>Front-end &amp; UI</h4>
+          </div>
+          <ul class="tags">
+            <li class="core">Next.js</li>
+            <li class="core">React</li>
+            <li>Vue.js</li>
+            <li>JavaScript ES6+</li>
+            <li class="core">Filament 3</li>
+            <li>Smarty</li>
+            <li>Tailwind / CSS3</li>
+            <li>HTML5 Semantic</li>
+          </ul>
+        </div>
+
+        <div class="card skill-card reveal">
+          <div class="skill-card-header">
+            <div class="skill-icon">
+              <svg viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+            </div>
+            <h4>Cơ sở dữ liệu &amp; Cache</h4>
+          </div>
+          <ul class="tags">
+            <li class="core">PostgreSQL</li>
+            <li class="core">MySQL 8</li>
+            <li class="core">Redis</li>
+            <li>TypeORM</li>
+            <li>Schema Design</li>
+            <li>Query Optimization</li>
+            <li>NoSQL</li>
+          </ul>
+        </div>
+
+        <div class="card skill-card reveal">
+          <div class="skill-card-header">
+            <div class="skill-icon">
+              <svg viewBox="0 0 24 24"><path d="m18 16 4-4-4-4"/><path d="m6 8-4 4 4 4"/><path d="m14.5 4-5 16"/></svg>
+            </div>
+            <h4>DevOps, CI/CD &amp; Testing</h4>
+          </div>
+          <ul class="tags">
+            <li class="core">Docker &amp; Compose</li>
+            <li class="core">GitLab CI</li>
+            <li class="core">Playwright (E2E)</li>
+            <li>PHPStan</li>
+            <li>AWS Cloud</li>
+            <li>Linux Server</li>
+            <li>Git Flow</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE SECTION -->
+    <section id="experience" class="section container">
+      <div class="section-head reveal">
+        <span class="section-tag mono">03 // LỘ TRÌNH NGHỀ NGHIỆP</span>
+        <h3>Kinh nghiệm làm việc</h3>
+        <p class="section-desc">Quá trình làm việc tại các công ty công nghệ, phần lớn trong các dự án cho khách hàng Nhật Bản.</p>
+      </div>
+
+      <ol class="timeline">
+        <!-- THK -->
+        <li class="tl-item current reveal">
+          <div class="tl-date mono">
+            03/2025 — Hiện tại
+            <div class="tl-badge-current">Đang công tác</div>
+          </div>
+          <div class="tl-body">
+            <div class="tl-card">
+              <h4>PHP Developer <span class="at">@ THK Holdings Việt Nam</span></h4>
+              <p class="tl-subtitle">Phát triển và bảo trì hệ sinh thái nền tảng tuyển dụng việc làm cho thị trường Nhật Bản.</p>
+              <ul class="tl-bullets">
+                <li><b>Hệ thống cổng thông tin tuyển dụng &amp; Member Portal:</b> Phát triển chức năng tìm kiếm việc làm theo khu vực, banner &amp; trang chuyên đề, form ứng tuyển và đăng ký đối tác.</li>
+                <li><b>Tối ưu hóa SEO &amp; Tracking:</b> Tối ưu header và cấu trúc trang cho SEO, tích hợp Google Analytics.</li>
+                <li><b>Mạng lưới website vệ tinh:</b> Đồng bộ dữ liệu giữa các hệ thống, xây dựng landing page, hoàn thiện giao diện PC/Mobile theo thiết kế, áp dụng PHPStan để kiểm soát chất lượng code.</li>
+                <li><b>Bảo mật &amp; Ổn định:</b> Validate dữ liệu đầu vào, phòng chống XSS, xử lý lỗi tương thích trên các trình duyệt và thiết bị di động.</li>
+              </ul>
+              <ul class="tags sm">
+                <li>PHP 7</li><li>FuelPHP</li><li>Smarty</li><li>MySQL</li><li>NoSQL</li><li>Docker</li><li>AWS</li><li>PHPStan</li>
+              </ul>
+            </div>
+          </div>
+        </li>
+
+        <!-- NTQ - Python -->
+        <li class="tl-item reveal">
+          <div class="tl-date mono">04/2024 — 02/2025</div>
+          <div class="tl-body">
+            <div class="tl-card">
+              <h4>Python Developer <span class="at">@ NTQ Solution</span></h4>
+              <p class="tl-subtitle">Dự án hệ thống Odoo, team 20+ thành viên.</p>
+              <ul class="tl-bullets">
+                <li><b>Nghiệp vụ cốt lõi:</b> Triển khai các yêu cầu nghiệp vụ từ BA, tập trung vào phân hệ Tuyển dụng nhân sự (Recruitment) và Quản lý bảng lương (Payroll).</li>
+                <li><b>Báo cáo &amp; Tối ưu truy vấn:</b> Phát triển và tối ưu các báo cáo nghiệp vụ phục vụ quản lý và vận hành.</li>
+              </ul>
+              <ul class="tags sm">
+                <li>Python</li><li>Odoo Framework</li><li>PostgreSQL</li><li>Git</li>
+              </ul>
+            </div>
+          </div>
+        </li>
+
+        <!-- NTQ - PHP -->
+        <li class="tl-item reveal">
+          <div class="tl-date mono">04/2022 — 03/2024</div>
+          <div class="tl-body">
+            <div class="tl-card">
+              <h4>PHP Developer <span class="at">@ NTQ Solution</span></h4>
+              <p class="tl-subtitle">Dự án OfferBox Labo cho đối tác Nhật Bản — Nền tảng kết nối trực tiếp doanh nghiệp với sinh viên mới tốt nghiệp (Team 20 kỹ sư).</p>
+              <ul class="tl-bullets">
+                <li><b>Modernization hệ thống:</b> Tham gia chuyển đổi hệ thống từ FuelPHP sang Laravel.</li>
+                <li><b>Tính năng kinh doanh:</b> Phát triển tính năng mới theo yêu cầu của khách hàng Nhật.</li>
+              </ul>
+              <ul class="tags sm">
+                <li>PHP</li><li>Laravel</li><li>FuelPHP</li><li>MySQL</li>
+              </ul>
+            </div>
+          </div>
+        </li>
+
+        <!-- Brodev -->
+        <li class="tl-item reveal">
+          <div class="tl-date mono">07/2021 — 10/2021</div>
+          <div class="tl-body">
+            <div class="tl-card">
+              <h4>Thực tập sinh Phần mềm <span class="at">@ Công ty Cổ phần Brodev</span></h4>
+              <p class="tl-subtitle">Làm quen với Golang, Vue.js và quy trình phát triển phần mềm.</p>
+              <ul class="tl-bullets">
+                <li>Nghiên cứu, tìm hiểu ngôn ngữ Golang và thư viện Vue.js trong việc xây dựng ứng dụng web hiện đại.</li>
+                <li>Làm quen với quy trình phát triển phần mềm chuyên nghiệp, văn hóa Git và làm việc nhóm.</li>
+              </ul>
+              <ul class="tags sm">
+                <li>Golang</li><li>Vue.js</li><li>Git</li>
+              </ul>
+            </div>
+          </div>
+        </li>
+
+        <!-- Education -->
+        <li class="tl-item reveal">
+          <div class="tl-date mono">2016 — 2021</div>
+          <div class="tl-body">
+            <div class="tl-card">
+              <h4>Cử nhân Tin học <span class="at">@ Học viện Nông nghiệp Việt Nam</span></h4>
+              <p class="tl-subtitle">Đào tạo bài bản về cấu trúc dữ liệu &amp; giải thuật, mạng máy tính và phát triển phần mềm.</p>
+              <ul class="tl-bullets">
+                <li><b>Khóa luận tốt nghiệp:</b> Đạt <b>8.8/10</b> với đề tài “Xây dựng trang web đọc và sáng tác truyện chữ”.</li>
+                <li>Đạt Học bổng Khuyến khích học tập của Học viện (kỳ 12/2019).</li>
+              </ul>
+            </div>
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <!-- PROJECTS SECTION -->
+    <section id="projects" class="section container">
+      <div class="section-head reveal">
+        <span class="section-tag mono">04 // DỰ ÁN NỔI BẬT</span>
+        <h3>Dự án freelance</h3>
+        <p class="section-desc">Các hệ thống tôi tự xây dựng từ back-end đến giao diện và triển khai.</p>
+      </div>
+
+      <div class="projects">
+        <!-- Project 1: HRM Odoo -->
+        <article class="project-card card reveal">
+          <div class="project-card-top">
+            <div class="badge-group">
+              <span class="badge-freelance">Freelance</span>
+              <span class="badge-status">Đang phát triển</span>
+            </div>
+            <span class="project-date mono">10/2026 — Hiện tại</span>
+          </div>
+          <h4>HRM Odoo</h4>
+          <p class="project-sub">Hệ thống Quản trị Nhân sự &amp; Tiền lương Doanh nghiệp · Python Developer</p>
+          <ul class="project-bullets">
+            <li><b>Chuẩn hóa luật lao động:</b> Xây dựng phân hệ HRM trên nền Odoo 20 tuân thủ đầy đủ Luật Lao động Việt Nam: số hóa hồ sơ, hợp đồng và phụ lục hợp đồng, lộ trình thử việc, quy trình thôi việc, lịch sử lương.</li>
+            <li><b>Chấm công &amp; Tính lương:</b> Phân ca, tổng hợp bảng công tháng, xử lý phạt vi phạm, tự động tính phép năm lũy kế, quy trình xét duyệt đơn từ 2 cấp và xuất phiếu lương minh bạch.</li>
+            <li><b>Realtime &amp; Đa công ty:</b> Thiết kế cơ chế đa chi nhánh/công ty, phân quyền dữ liệu chặt chẽ và chat nội bộ realtime tích hợp qua Odoo bus.</li>
+            <li><b>Tự động hóa CI/CD &amp; Testing:</b> Thiết lập Docker Compose, pipeline GitLab CI đồng bộ lên staging và viết bộ test UI bằng Playwright.</li>
+          </ul>
+          <div class="project-footer">
+            <ul class="tags sm">
+              <li>Odoo 20</li><li>Python</li><li>PostgreSQL</li><li>OWL UI</li><li>Docker</li><li>GitLab CI</li><li>Playwright</li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- Project 2: LMS Pencil -->
+        <article class="project-card card reveal">
+          <div class="project-card-top">
+            <div class="badge-group">
+              <span class="badge-freelance">Freelance</span>
+              <span class="badge-status">Đang phát triển</span>
+            </div>
+            <span class="project-date mono">05/2026 — Hiện tại</span>
+          </div>
+          <h4>LMS Pencil SaaS</h4>
+          <p class="project-sub">Nền tảng SaaS Quản lý Đào tạo Đa Trung tâm · Full-stack Developer</p>
+          <ul class="project-bullets">
+            <li><b>Kiến trúc Multi-tenant:</b> Kiến trúc đa người thuê: mỗi trung tâm đào tạo sở hữu subdomain riêng biệt và schema PostgreSQL cô lập dữ liệu hoàn toàn, phân cấp tính năng theo gói dịch vụ (Plan).</li>
+            <li><b>Quản trị nghiệp vụ đào tạo:</b> Quản lý khóa học, lớp, thời khóa biểu, điểm danh, bài tập về nhà, báo cáo học tập hằng tháng, hóa đơn học phí và thanh toán ngân hàng.</li>
+            <li><b>Lớp học ảo thời gian thực:</b> Tích hợp LiveKit WebRTC hỗ trợ chia phòng nhóm (Breakout rooms), bảng trắng tương tác (Whiteboard), chat và ghi âm bài nói trực tiếp phục vụ học viên ngoại ngữ.</li>
+            <li><b>Hạ tầng mở rộng:</b> Tích hợp OAuth SSO, CRM bên thứ ba, trợ lý AI hỗ trợ giáo viên; hệ thống hàng đợi tác vụ ngầm BullMQ + Redis và lưu trữ tệp tin trên Amazon S3.</li>
+          </ul>
+          <div class="project-footer">
+            <ul class="tags sm">
+              <li>NestJS</li><li>TypeORM</li><li>PostgreSQL</li><li>Redis</li><li>Next.js</li><li>React</li><li>LiveKit</li><li>BullMQ</li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- Project 3: 29Closet -->
+        <article class="project-card card reveal">
+          <div class="project-card-top">
+            <div class="badge-group">
+              <span class="badge-freelance">Freelance</span>
+              <span class="badge-status">Đã bàn giao</span>
+            </div>
+            <span class="project-date mono">10/2025 — 01/2026</span>
+          </div>
+          <h4>29Closet Platform</h4>
+          <p class="project-sub">Hệ thống Quản lý Booking KOL/KOC &amp; Doanh số E-commerce · Full-stack</p>
+          <ul class="project-bullets">
+            <li><b>Quy trình booking:</b> Xây dựng quy trình booking KOL/KOC: quản lý hồ sơ và bảng giá creator, booking chiến dịch video, cơ chế phê duyệt đa cấp độ, đối soát thanh toán và luân chuyển hàng mẫu (Kho - Vận chuyển - CSKH).</li>
+            <li><b>Đo lường KPI &amp; GMV:</b> Thiết kế hệ thống thống kê số liệu sản phẩm, theo dõi KPI theo từng shop/nhân viên kinh doanh, thống kê chi tiết chỉ số doanh số (GMV) đóng góp theo từng sản phẩm và nhà sáng tạo nội dung.</li>
+            <li><b>Phân quyền &amp; Nhật ký hoạt động:</b> Xây dựng Dashboard riêng biệt theo vai trò (Admin cấp cao, Kế toán, Nhân viên vận hành, KOL), phân quyền chi tiết với Filament 3 và lưu vết Activity Log đầy đủ.</li>
+          </ul>
+          <div class="project-footer">
+            <ul class="tags sm">
+              <li>PHP 8</li><li>Laravel 10</li><li>Filament 3</li><li>MySQL 8</li><li>Docker</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact" class="section contact-section container">
+      <div class="contact-card card reveal">
+        <span class="contact-pill mono">05 // GET IN TOUCH</span>
+        <h3>Cùng tạo nên những sản phẩm chất lượng nhé?</h3>
+        <p>
+          Tôi luôn sẵn lòng trao đổi về dự án hợp tác hoặc đơn giản là cùng thảo luận về công nghệ và kiến trúc phần mềm.
+        </p>
+
+        <div class="contact-actions">
+          <a class="btn primary" href="mailto:dattruong0108@gmail.com" id="mainEmailBtn">
+            <svg viewBox="0 0 24 24"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            <span>Gửi email trao đổi</span>
+          </a>
+
+          <button class="btn ghost" id="copyEmail" data-email="dattruong0108@gmail.com" aria-label="Sao chép địa chỉ email">
+            <svg id="copyIcon" viewBox="0 0 24 24"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
+            <span id="copyBtnText">Sao chép email</span>
+          </button>
+
+          <a class="btn ghost" href="https://github.com/dat998" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+            <span>github.com/dat998</span>
+          </a>
+        </div>
+
+        <div class="contact-meta">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          <span>Hà Nội · Múi giờ Việt Nam (GMT+7)</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <span>© <span id="year">2026</span> Trương Công Đạt · Full-stack Developer</span>
+            <a href="#top" class="back-to-top mono" aria-label="Cuộn lên đầu trang">
+        <span>Lên đầu trang</span>
+        <svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg>
+      </a>
+    </div>
+  </footer>
+
+  <!-- Floating Scroll to Top button -->
+  <button class="scroll-top-btn" id="scrollTopBtn" aria-label="Cuộn lên đầu trang" title="Lên đầu trang">
+    <svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg>
+  </button>
+
+  <!-- Modern Toast Notification -->
+  <div class="toast" id="toast" role="status" aria-live="polite">
+    <svg class="toast-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+    <span id="toastMsg">Đã sao chép email vào bộ nhớ tạm!</span>
+  </div>
+
+  <script src="script.js"></script>
+</body>
 </html>
